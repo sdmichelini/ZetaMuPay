@@ -1,0 +1,23 @@
+<nav>
+    <div class="nav-wrapper blue darken-4">
+      <a href="/" class="brand-logo">Zeta-Mu Pay</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="/">Home</a></li>
+        <% if(typeof userX == 'undefined'){ %>
+          <li><a href="/login">Login</a></li>
+        <% } else if(userX != null){
+          if (userX.level == 'admin'){ %>
+            <li><a href="/admin">Admin</a></li>
+          <% } %>
+          <li><a href="/logout">Logout</a></li>
+        <% } else { %>
+          <li><a href="/login">Login</a></li>
+        <% } %>
+
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+        <li><a href="/">Home</a></li>
+      </ul>
+    </div>
+  </nav>

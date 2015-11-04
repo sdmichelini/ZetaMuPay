@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include header.ejs %>
+  </head>
+    <body>
+      <% include navbar.ejs %>
+      <table>
+        <thead>
+          <tr>
+              <th data-field="id">Name</th>
+              <th data-field="level">Access Level</th>
+              <th data-field="select">Edit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for (var i = 0; i < users.length; i++){ %>
+          <% var displayName = 'Sola Sucks';
+            if(users[i].local.username){
+              displayName = users[i].local.username;
+            }else if(users[i].facebook.name){
+              displayName = users[i].facebook.name;
+            }else if(users[i].twitter.displayName){
+              displayName = users[i].twitter.displayName;
+            }else if(users[i].google.name){
+              displayName = users[i].google.name;
+            }
+          %>
+          <tr>
+            <td>
+              <%= displayName %>
+            </td>
+            <td><%= users[i].level %></td>
+            <td><a href="/admin/users/<%= users[i]._id %>">Edit</a></td>
+          </tr>
+          <% } %>
+        </tbody>
+      </table>
+      <% include navscript.ejs %>
+    </body>
+</html>

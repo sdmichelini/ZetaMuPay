@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <% include header.ejs %>
+</head>
+
+<body>
+  <% include navbar.ejs %>
+    <%
+        //Grab the display name of the person
+        var displayName = 'Sola Sucks';
+        if(user.local.username){
+          displayName = user.local.username;
+        }else if(user.facebook.name){
+          displayName = user.facebook.name;
+        }else if(user.twitter.displayName){
+          displayName = user.twitter.displayName;
+        }else if(user.google.name){
+          displayName = user.google.name;
+        }
+      %>
+        <div class='row'>
+          <div class='col s12 m8 offset-m2'>
+            <form method='post' action=''>
+              <div class="row">
+                Name:
+                <%= displayName %>
+              </div>
+              <div class="row">
+                Current Access Level:
+                <%= user.level %>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <select name='access_level'>
+                    <option value="" disabled selected>Choose Access Level</option>
+                    <option value="1">User</option>
+                    <option value="2">Content Manager</option>
+                    <option value="3">Administrator</option>
+                  </select>
+                </div>
+              </div>
+              <div class='row'>
+                <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                  <i class="material-icons right">send</i>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <% include navscript.ejs %>
+          <script type="text/javascript">
+            $(document).ready(function() {
+              //Javascript for the Select Menu
+              $('select').material_select();
+            });
+          </script>
+</body>
+
+</html>

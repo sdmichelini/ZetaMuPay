@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include header.ejs %>
+  </head>
+    <body>
+      <% include navbar.ejs %>
+      <div class = "row">
+        <div class = "col s12 m6 l4">
+          <div class = "card">
+            <div class = "card-content">
+              Manage the Officers of the Chapter
+            </div>
+            <div class = "card-action">
+              <a href="/admin/officers">Edit</a>
+            </div>
+          </div>
+        </div>
+        <div class = "col s12 m6 l4">
+          <div class = "card">
+            <div class = "card-content">
+              Add Events to the Events Feed
+            </div>
+            <div class = "card-action">
+              <a href="/admin/events">Edit</a>
+            </div>
+          </div>
+        </div>
+        <div class = "col s12 m6 l4">
+          <div class = "card">
+            <div class = "card-content">
+              Add a Project that the House is Working On
+            </div>
+            <div class = "card-action">
+              <a href="/admin/projects">Edit</a>
+            </div>
+          </div>
+        </div>
+        <div class = "col s12 m6 l4">
+          <div class = "card">
+            <div class = "card-content">
+              Promote others to Admin
+            </div>
+            <div class = "card-action">
+              <a href="/admin/users">Edit</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% include navscript.ejs %>
+    </body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <% include header.ejs %>
+</head>
+
+<body>
+  <% include navbar.ejs %>
+  <div class='row'>
+    <div class='col s12 m6'>
+      <div class='card'>
+      <div class='card-title black-text'>
+        Local
+      </div>
+      <div class='card-content'>
+        <% if(userX.local.email){ %>
+          Your email is: <%= userX.local.email %>
+        <% }else{ %>
+          <a href='/signup'>Sign-Up</a> for a Local Account.
+        <% } %>
+      </div>
+    </div>
+    </div>
+    <div class='col s12 m6'>
+      <div class='card'>
+        <div class='card-title black-text'>
+          Facebook
+        </div>
+        <div class='card-content'>
+          <% if(userX.facebook.name){ %>
+            Your Facebook Name is: <%= userX.facebook.name %>
+          <% }else{ %>
+            Here you can link your Facebook Account.
+            <a href='/auth/facebook'>Link</a> Facebook.
+          <% } %>
+        </div>
+        <div class='card-action'>
+          <% if(userX.facebook.name){ %>
+            <a href='/unlink/facebook'>Unlink Account</a>
+          <% }else{ %>
+            Here you can link your Facebook Account.
+            <a href='/auth/facebook'>Link Facebook</a>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% include navscript.ejs %>
+</body>
+</html>
